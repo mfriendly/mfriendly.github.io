@@ -1,18 +1,188 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minkyoung Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --soft:#555;
+    --faint:#888;
+    --line:#e3e3e3;
+    --accent:#00357a;        /* Yonsei royal blue (swap with official hex if you have it) */
+    --accent-soft:#eef2f8;
+    --bg:#fdfdfc;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Times New Roman', Tinos, Times, serif;
+    line-height:1.6;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:92px 30px 120px; }
+  @media(max-width:600px){ .wrap{padding:56px 22px 80px} }
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+  /* header */
+  h1{
+    font-weight:700;
+    font-size:3rem;
+    line-height:1.1;
+    letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+  @media(max-width:600px){ h1{font-size:2.3rem} }
+  .role{ color:var(--soft); font-size:1.05rem; max-width:38rem; }
+  .role .em{ color:var(--ink); font-weight:700; }
+  .role a{ color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); }
+  .role a:hover{ border-color:var(--accent); }
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  /* links */
+  .links{ display:flex; flex-wrap:wrap; gap:9px; margin-top:24px; }
+  .links a{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:0.95rem; color:var(--ink); text-decoration:none;
+    padding:7px 15px; border:1px solid var(--line); border-radius:4px;
+    background:#fff; transition:all .18s ease;
+  }
+  .links a:hover{ border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+  .links svg{ width:15px; height:15px; }
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+  /* sections */
+  section{ margin-top:50px; }
+  .label{
+    font-size:0.82rem; font-weight:700; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--accent);
+    padding-bottom:8px; margin-bottom:18px;
+    border-bottom:2px solid var(--accent);
+  }
+  section p{ color:#2a2a2a; margin-bottom:14px; }
+  section p:last-child{ margin-bottom:0; }
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+  /* research list */
+  .ri{ list-style:none; }
+  .ri li{
+    position:relative; padding:9px 0 9px 22px;
+    border-bottom:1px solid var(--line); color:#2a2a2a; font-size:1.02rem;
+  }
+  .ri li:last-child{ border-bottom:none; }
+  .ri li::before{
+    content:""; position:absolute; left:0; top:18px;
+    width:6px; height:6px; border-radius:50%; background:var(--accent);
+  }
+
+  /* publications */
+  .pub{ padding:15px 0; border-bottom:1px solid var(--line); }
+  .pub:last-child{ border-bottom:none; }
+  .pub .t{ color:var(--ink); }
+  .pub .a{ color:var(--soft); font-size:0.96rem; margin-top:3px; }
+  .pub .a b{ color:var(--ink); }
+  .pub .v{ color:var(--accent); font-style:italic; font-size:0.95rem; margin-top:3px; }
+  .pub-note{ font-size:0.95rem; color:var(--faint); margin-top:18px; }
+  .pub-note a{ color:var(--accent); }
+
+  /* footer */
+  footer{
+    margin-top:66px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:0.88rem; color:var(--faint);
+  }
+
+  .reveal{ opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.28s}
+  .d4{animation-delay:.4s}.d5{animation-delay:.52s}.d6{animation-delay:.62s}
+  @media(prefers-reduced-motion:reduce){ .reveal{animation:none;opacity:1;transform:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reveal d1">
+    <h1>Minkyoung Kim</h1>
+    <p class="role">
+      <span class="em">Ph.D. Candidate</span>, ANDLab, Graduate School of Information, Yonsei University, advised by Prof. Beakcheol Jang.<br>
+      B.A. in Economics, University of Pennsylvania.
+    </p>
+  </header>
+
+  <nav class="links reveal d2">
+    <a href="mailto:minky@yonsei.ac.kr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      Email
+    </a>
+    <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 1 9l11 6 9-4.9V17"/><path d="M5 11.5V16c0 1.5 3.13 3 7 3s7-1.5 7-3v-4.5"/></svg>
+      Google Scholar
+    </a>
+    <a href="https://github.com/mfriendly" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+      GitHub
+    </a>
+  </nav>
+
+  <section class="reveal d3">
+    <div class="label">About</div>
+    <p>My research centers on <b>policy-aware forecasting across domains</b>, combining graph neural networks, time series analysis, meta-learning, and epidemic modeling. I am particularly interested in how domain structure and policy interventions can be encoded as inductive biases for robust prediction.</p>
+    <p>I am currently extending this agenda toward economics, energy and climate, and clinical settings, with an eye on causal and foundation-model directions.</p>
+  </section>
+
+  <section class="reveal d4">
+    <div class="label">Research Interests</div>
+    <ul class="ri">
+      <li>Spatio-temporal graph neural networks (STGNNs)</li>
+      <li>Time series forecasting</li>
+      <li>Epidemic modeling and policy effect estimation</li>
+      <li>Meta-learning and graph structure learning</li>
+    </ul>
+  </section>
+
+  <section class="reveal d5">
+    <div class="label">Publications</div>
+
+    <div class="pub">
+      <div class="t">CTRL: Control-Based Time Series Forecasting with LLM-Guided Residual Learning</div>
+      <div class="a"><b>M. Kim</b>, D. Ji, Y. Lee, B. Kim, B. Jang</div>
+      <div class="v">Findings of the Association for Computational Linguistics: ACL 2026</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">Bilevel Graph Structure Learning, Revisited: Inner-Channel Origins of the Reported Gain</div>
+      <div class="a"><b>M. Kim</b>, B. Jang</div>
+      <div class="v">arXiv:2605.07577, 2025</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">Accurate Total Consumer Price Index Forecasting with Data Augmentation, Multivariate Features, and Sentiment Analysis: A Case Study in Korea</div>
+      <div class="a">I. Seo, <b>M. Kim</b>, J. W. Kim, B. Jang</div>
+      <div class="v">PLOS ONE 20(5), e0321530, 2025</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers</div>
+      <div class="a"><b>M. Kim</b>, J. H. Kim, B. Jang</div>
+      <div class="v">IEEE Journal of Biomedical and Health Informatics 29(2), 1546-1559, 2024</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">Time Series Decomposition and Hybrid RNN-Based Spread Prediction: Focused on the International Energy Futures Market</div>
+      <div class="a"><b>M. Kim</b>, S. Hwang, H. Y. Kim</div>
+      <div class="v">The Korean Journal of Financial Management 39(4), 89-122, 2022</div>
+    </div>
+
+    <p class="pub-note">Full list available on <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+  </section>
+
+  <footer class="reveal d6">
+    &copy; 2026 Minkyoung Kim &middot; Seoul, Republic of Korea
+  </footer>
+
 </div>
+</body>
+</html>
