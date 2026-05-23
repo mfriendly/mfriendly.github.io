@@ -4,12 +4,19 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a Ph.D. Candidate at **ANDLab** (Artificial Intelligence, Natural Language Processing & Bigdata Analytics Laboratory), Graduate School of Information, Yonsei University. I hold a B.A. in Economics from the University of Pennsylvania.
 
-### More Information
+My research centers on **policy-aware forecasting across domains**, combining graph neural networks, time series analysis, meta-learning, and epidemic modeling. I am particularly interested in how domain structure and policy interventions can be encoded as inductive biases for robust prediction.
 
-A place to include any other types of information that you'd like to include about yourself.
+### Research Interests
 
-### Contact me
+- Spatio-temporal graph neural networks (STGNNs)
+- Time series forecasting
+- Epidemic modeling and policy effect estimation
+- Meta-learning and graph structure learning
 
-[email@domain.com](mailto:email@domain.com)
+### Contact
+
+- Email: <minky@yonsei.ac.kr>
+- Google Scholar: [scholar.google.com/citations?user=A_sQAEwAAAAJ](https://scholar.google.com/citations?user=A_sQAEwAAAAJ)
+- GitHub: [github.com/mfriendly](https://github.com/mfriendly)
