@@ -6,145 +6,175 @@
 <title>Minkyoung Kim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1a1a1a;
-    --soft:#555;
-    --faint:#888;
-    --line:#e3e3e3;
-    --accent:#00357a;        /* Yonsei royal blue (swap with official hex if you have it) */
-    --accent-soft:#eef2f8;
-    --bg:#fdfdfc;
+    --bg:#fbfbfa;
+    --panel:#0f1f3d;
+    --panel-ink:#eef1f6;
+    --panel-soft:#9aa7bd;
+    --ink:#1a1f28;
+    --soft:#4f5866;
+    --faint:#88919e;
+    --line:#e2e4e8;
+    --accent:#00357a;
+    --accent-soft:#e8eef7;
+  }
+  html[data-theme="dark"]{
+    --bg:#11151c;
+    --panel:#0a1120;
+    --panel-ink:#eef1f6;
+    --panel-soft:#8d98ab;
+    --ink:#e9ecf1;
+    --soft:#aeb6c2;
+    --faint:#848d9a;
+    --line:#242c38;
+    --accent:#8fb3e6;
+    --accent-soft:#182231;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     background:var(--bg);
     color:var(--ink);
-    font-family:'Times New Roman', Tinos, Times, serif;
-    line-height:1.6;
-    font-size:18px;
+    font-family:Inter,'Helvetica Neue',Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    font-size:16.5px;
+    line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{ max-width:700px; margin:0 auto; padding:92px 30px 120px; }
-  @media(max-width:600px){ .wrap{padding:56px 22px 80px} }
+  a{color:inherit}
 
-  /* header */
-  h1{
-    font-weight:700;
-    font-size:3rem;
-    line-height:1.1;
-    letter-spacing:-0.01em;
-    margin-bottom:14px;
+  /* sidebar */
+  .side{
+    position:fixed; top:0; left:0; width:296px; height:100vh; overflow-y:auto;
+    background:var(--panel); color:var(--panel-ink);
+    padding:40px 30px; display:flex; flex-direction:column; gap:26px;
   }
-  @media(max-width:600px){ h1{font-size:2.3rem} }
-  .role{ color:var(--soft); font-size:1.05rem; max-width:38rem; }
-  .role .em{ color:var(--ink); font-weight:700; }
-  .role a{ color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); }
-  .role a:hover{ border-color:var(--accent); }
+  .photo{
+    width:112px; height:112px; border-radius:50%; object-fit:cover;
+    border:2px solid rgba(255,255,255,.22); background:#1b2c4d; display:block;
+  }
+  .who h1{ font-size:1.55rem; font-weight:700; letter-spacing:-0.01em; }
+  .who p{ font-size:0.82rem; letter-spacing:0.12em; color:var(--panel-soft); margin-top:5px; }
+  .contact{ display:flex; flex-direction:column; gap:9px; font-size:0.9rem; }
+  .contact a{ color:var(--panel-soft); text-decoration:none; word-break:break-all; }
+  .contact a:hover{ color:#fff; }
+  .nav{ display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,.12); padding-top:18px; }
+  .nav a{ color:var(--panel-soft); text-decoration:none; padding:8px 0; font-size:0.97rem; }
+  .nav a:hover{ color:#fff; }
 
-  /* links */
-  .links{ display:flex; flex-wrap:wrap; gap:9px; margin-top:24px; }
-  .links a{
-    display:inline-flex; align-items:center; gap:7px;
-    font-size:0.95rem; color:var(--ink); text-decoration:none;
-    padding:7px 15px; border:1px solid var(--line); border-radius:4px;
-    background:#fff; transition:all .18s ease;
+  /* main */
+  main{ margin-left:296px; padding:72px 8vw 110px; max-width:1040px; }
+  .toggle{ position:fixed; top:22px; right:28px; display:flex; gap:6px; z-index:5; }
+  .toggle button{
+    font:inherit; font-size:0.85rem; padding:7px 14px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--line); background:var(--bg); color:var(--soft);
   }
-  .links a:hover{ border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
-  .links svg{ width:15px; height:15px; }
+  .toggle button:hover{ color:var(--accent); border-color:var(--accent); }
 
-  /* sections */
-  section{ margin-top:50px; }
-  .label{
-    font-size:0.82rem; font-weight:700; letter-spacing:0.16em;
-    text-transform:uppercase; color:var(--accent);
-    padding-bottom:8px; margin-bottom:18px;
-    border-bottom:2px solid var(--accent);
+  .eyebrow{
+    display:inline-block; font-size:0.78rem; font-weight:600; letter-spacing:0.14em;
+    color:var(--accent); background:var(--accent-soft);
+    padding:5px 12px; border-radius:5px; margin-bottom:22px;
   }
-  section p{ color:#2a2a2a; margin-bottom:14px; }
-  section p:last-child{ margin-bottom:0; }
+  .lede{ font-size:1.18rem; line-height:1.75; max-width:36rem; }
+  .lede + .lede{ margin-top:16px; }
 
-  /* research list */
-  .ri{ list-style:none; }
-  .ri li{
-    position:relative; padding:9px 0 9px 22px;
-    border-bottom:1px solid var(--line); color:#2a2a2a; font-size:1.02rem;
+  section{ margin-top:66px; scroll-margin-top:30px; }
+  h2{
+    font-size:1.55rem; font-weight:700; letter-spacing:-0.01em;
+    display:flex; align-items:center; gap:18px; margin-bottom:26px;
   }
-  .ri li:last-child{ border-bottom:none; }
-  .ri li::before{
-    content:""; position:absolute; left:0; top:18px;
-    width:6px; height:6px; border-radius:50%; background:var(--accent);
+  h2::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:9px; margin-top:28px; }
+  .tags span{
+    font-size:0.88rem; color:var(--soft); border:1px solid var(--line);
+    border-radius:999px; padding:6px 15px; background:transparent;
   }
 
-  /* publications */
-  .pub{ padding:15px 0; border-bottom:1px solid var(--line); }
+  .pub{ padding:16px 0; border-bottom:1px solid var(--line); }
   .pub:last-child{ border-bottom:none; }
-  .pub .t{ color:var(--ink); }
-  .pub .a{ color:var(--soft); font-size:0.96rem; margin-top:3px; }
-  .pub .a b{ color:var(--ink); }
-  .pub .v{ color:var(--accent); font-style:italic; font-size:0.95rem; margin-top:3px; }
-  .pub-note{ font-size:0.95rem; color:var(--faint); margin-top:18px; }
-  .pub-note a{ color:var(--accent); }
+  .pub .t{ font-weight:600; }
+  .pub .a{ color:var(--soft); font-size:0.95rem; margin-top:3px; }
+  .pub .a b{ color:var(--ink); font-weight:600; }
+  .pub .v{ color:var(--accent); font-size:0.92rem; margin-top:3px; }
+  .note{ font-size:0.9rem; color:var(--faint); margin-top:18px; }
+  .note a{ color:var(--accent); }
 
-  /* footer */
-  footer{
-    margin-top:66px; padding-top:20px; border-top:1px solid var(--line);
-    font-size:0.88rem; color:var(--faint);
+  .row{ display:grid; grid-template-columns:168px 1fr; gap:24px; padding:16px 0; border-bottom:1px solid var(--line); }
+  .row:last-child{ border-bottom:none; }
+  .row .when{ font-size:0.88rem; color:var(--faint); letter-spacing:0.02em; padding-top:2px; }
+  .row .what b{ font-weight:600; }
+  .row .what p{ color:var(--soft); font-size:0.95rem; margin-top:2px; }
+  .todo{ color:#b4432f; }
+
+  footer{ margin-top:80px; padding-top:22px; border-top:1px solid var(--line); font-size:0.88rem; color:var(--faint); }
+
+  @media(max-width:900px){
+    .side{ position:static; width:auto; height:auto; flex-direction:row; flex-wrap:wrap; align-items:center; gap:18px; padding:26px 22px; }
+    .side .nav{ display:none; }
+    .photo{ width:76px; height:76px; }
+    main{ margin-left:0; padding:40px 22px 80px; }
+    .toggle{ position:static; margin-bottom:26px; }
+    .row{ grid-template-columns:1fr; gap:4px; }
   }
-
-  .reveal{ opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
-  @keyframes rise{ to{ opacity:1; transform:none; } }
-  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.28s}
-  .d4{animation-delay:.4s}.d5{animation-delay:.52s}.d6{animation-delay:.62s}
-  @media(prefers-reduced-motion:reduce){ .reveal{animation:none;opacity:1;transform:none} }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="reveal d1">
+<aside class="side">
+  <!-- Put a square photo named profile.png next to this file -->
+  <img class="photo" src="profile.png" alt="Minkyoung Kim">
+  <div class="who">
     <h1>Minkyoung Kim</h1>
-    <p class="role">
-      <span class="em">Ph.D. Candidate</span>, ANDLab, Graduate School of Information, Yonsei University, advised by Prof. Beakcheol Jang.<br>
-      B.A. in Economics, University of Pennsylvania.
-    </p>
-  </header>
-
-  <nav class="links reveal d2">
-    <a href="mailto:minky@yonsei.ac.kr">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      Email
-    </a>
-    <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 1 9l11 6 9-4.9V17"/><path d="M5 11.5V16c0 1.5 3.13 3 7 3s7-1.5 7-3v-4.5"/></svg>
-      Google Scholar
-    </a>
-    <a href="https://github.com/mfriendly" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
-      GitHub
-    </a>
+    <p>PH.D. CANDIDATE</p>
+  </div>
+  <div class="contact">
+    <a href="mailto:minkkim1228@gmail.com">minkkim1228@gmail.com</a>
+    <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    <a href="https://github.com/mfriendly" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://orcid.org/0009-0001-3530-0885" target="_blank" rel="noopener">ORCID 0009-0001-3530-0885</a>
+    <!-- Put kim_cv.pdf next to this file; the browser opens it and the reader can download it from there -->
+    <a href="kim_cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+  </div>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#publications">Publications</a>
+    <a href="#review">Under review</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#service">Academic service</a>
+    <a href="#education">Education</a>
   </nav>
+</aside>
 
-  <section class="reveal d3">
-    <div class="label">About</div>
-    <p>My research lies at the intersection of graph neural networks, time series forecasting, meta-learning, and epidemic modeling. I am broadly interested in how domain structure can be encoded as inductive biases for robust prediction across settings.</p>
-    <p>I am currently exploring applications in economics, energy and climate, and clinical domains, with an eye on causal and foundation-model directions.</p>
+<main>
+  <div class="toggle">
+    <button id="theme">Dark</button>
+  </div>
+
+  <section id="about" style="margin-top:0">
+    <span class="eyebrow">ABOUT</span>
+    <p class="lede">I develop machine learning methods for prediction and decision-making in dynamic environments. My work spans forecasting under distribution shift, counterfactual estimation of intervention effects, and the selection of interventions under resource constraints. Predictions are rarely the end goal: they are inputs to decisions, so I study how models should be built and evaluated when decision quality, not accuracy alone, is what matters.</p>
+    <p class="lede">I work across public health, energy, and economic domains, and my methods draw on graph neural networks, time series models, and large language models. Before my Ph.D., I worked in the Korean asset management industry on fund strategy and alternative investments, and I hold the FRM certification.</p>
+    <div class="tags">
+      <span>Time series forecasting</span>
+      <span>Causal machine learning</span>
+      <span>Constrained decision-making</span>
+      <span>Graph neural networks</span>
+      <span>Epidemic modeling</span>
+      <span>LLMs for forecasting</span>
+    </div>
   </section>
 
-  <section class="reveal d4">
-    <div class="label">Research Interests</div>
-    <ul class="ri">
-      <li>Spatio-temporal graph neural networks (STGNNs)</li>
-      <li>Time series forecasting</li>
-      <li>Epidemic modeling and policy effect estimation</li>
-      <li>Meta-learning and graph structure learning</li>
-    </ul>
-  </section>
+  <section id="publications">
+    <h2>Publications</h2>
 
-  <section class="reveal d5">
-    <div class="label">Publications</div>
+    <div class="pub">
+      <div class="t">Beyond Similarity: Coverage-Aware Prompt Selection for Time Series Forecasting with LLMs</div>
+      <div class="a">D. Ji<sup>&dagger;</sup>, <b>M. Kim</b><sup>&dagger;</sup>, D. Kim, Y. Lee, B. Kim<sup>*</sup>, B. Jang<sup>*</sup></div>
+      <div class="v">Findings of the Association for Computational Linguistics: EMNLP 2026</div>
+    </div>
 
     <div class="pub">
       <div class="t">CTRL: Control-Based Time Series Forecasting with LLM-Guided Residual Learning</div>
@@ -153,21 +183,15 @@
     </div>
 
     <div class="pub">
-      <div class="t">Bilevel Graph Structure Learning, Revisited: Inner-Channel Origins of the Reported Gain</div>
-      <div class="a"><b>M. Kim</b>, B. Jang</div>
-      <div class="v">arXiv:2605.07577, 2025</div>
+      <div class="t">Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers</div>
+      <div class="a"><b>M. Kim</b>, J. H. Kim, B. Jang</div>
+      <div class="v">IEEE Journal of Biomedical and Health Informatics 29(2), 1546-1559, 2025</div>
     </div>
 
     <div class="pub">
       <div class="t">Accurate Total Consumer Price Index Forecasting with Data Augmentation, Multivariate Features, and Sentiment Analysis: A Case Study in Korea</div>
-      <div class="a">I. Seo, <b>M. Kim</b>, J. W. Kim, B. Jang</div>
+      <div class="a">I. Seo<sup>&dagger;</sup>, <b>M. Kim</b><sup>&dagger;</sup>, J. W. Kim, B. Jang</div>
       <div class="v">PLOS ONE 20(5), e0321530, 2025</div>
-    </div>
-
-    <div class="pub">
-      <div class="t">Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers</div>
-      <div class="a"><b>M. Kim</b>, J. H. Kim, B. Jang</div>
-      <div class="v">IEEE Journal of Biomedical and Health Informatics 29(2), 1546-1559, 2024</div>
     </div>
 
     <div class="pub">
@@ -176,13 +200,99 @@
       <div class="v">The Korean Journal of Financial Management 39(4), 89-122, 2022</div>
     </div>
 
-    <p class="pub-note">Full list available on <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <p class="note"><sup>&dagger;</sup> Equal contribution. <sup>*</sup> Corresponding authors. Full list on <a href="https://scholar.google.com/citations?user=A_sQAEwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
   </section>
 
-  <footer class="reveal d6">
-    &copy; 2026 Minkyoung Kim &middot; Seoul, Republic of Korea
-  </footer>
+  <section id="review">
+    <h2>Under review and preprints</h2>
 
-</div>
+    <div class="pub">
+      <div class="t">Chance-Constrained Selection of Sequential Intervention Strategies from Counterfactual Estimates</div>
+      <div class="a"><b>M. Kim</b>, B. Jang</div>
+      <div class="v">Under review. arXiv:2608.13209, 2026</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">AutoEpiGCL: Compartmentally Structured Graph Contrastive Learning for Epidemic Forecasting</div>
+      <div class="a"><b>M. Kim</b>, B. Jang</div>
+      <div class="v">Under review, 2026</div>
+    </div>
+
+    <div class="pub">
+      <div class="t">Bilevel Graph Structure Learning, Revisited: Inner-Channel Origins of the Reported Gain</div>
+      <div class="a"><b>M. Kim</b>, B. Jang</div>
+      <div class="v">arXiv:2605.07577, 2026</div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="row">
+      <div class="when">Spring 2026</div>
+      <div class="what">
+        <b>Data Analysis in Everyday Life</b>
+        <p>Instructor, Incheon Academy of Science &amp; Arts</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when todo">[Semester]</div>
+      <div class="what">
+        <b>Machine Learning (GSI7700)</b>
+        <p class="todo">[Teaching assistant], Graduate School of Information, Yonsei University</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="service">
+    <h2>Academic service</h2>
+    <div class="row">
+      <div class="when">Conferences</div>
+      <div class="what">
+        <b>Reviewer</b>
+        <p>NeurIPS 2026 (Evaluations and Datasets Track), AAAI 2026</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">Journals</div>
+      <div class="what">
+        <b>Reviewer</b>
+        <p>Travel Medicine and Infectious Disease</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="row">
+      <div class="when">2021 - 2028</div>
+      <div class="what">
+        <b>Integrated M.S./Ph.D. in Information Systems, Yonsei University</b>
+        <p>Graduate School of Information, ANDLab. Advised by Prof. Beakcheol Jang. Entered September 2021; degree expected February 2028.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">2015</div>
+      <div class="what">
+        <b>B.A. in Economics, University of Pennsylvania</b>
+        <p>College of Arts and Sciences.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Minkyoung Kim &middot; Seoul, Republic of Korea &middot; Last updated September 2026</footer>
+</main>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme');
+  const saved = localStorage.getItem('theme');
+  if (saved) { root.setAttribute('data-theme', saved); btn.textContent = saved === 'dark' ? 'Light' : 'Dark'; }
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    btn.textContent = next === 'dark' ? 'Light' : 'Dark';
+  });
+</script>
 </body>
 </html>
